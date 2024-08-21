@@ -1,5 +1,5 @@
 import java.util.Scanner;
-  public class Lab05Q1 {
+  public class IT24102555Lab05Q1 {
      public static void main(String[] args) {
 	 Scanner input = new Scanner(System.in);
 	 System.out.print("Enter the first number:");
@@ -14,11 +14,12 @@ if(num2>largest)
 if(num3>largest)
         largest = num3;
      int smallest = num1;
-if(num2>smallest)
+if(num2<smallest)
 	    smallest = num2;
-if(num3>smallest)
+if(num3<smallest)
         smallest = num3;
-	System.out.print("The largest number is:"+largest);
+        System.out.println("User entered numbers are:"+num1 +" "+ num2+ " " +num3);
+	System.out.println("The largest number is:"+largest);
 	System.out.print("The smallest number is:"+smallest);
 	}
-}	
+}
