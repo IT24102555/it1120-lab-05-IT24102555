@@ -20,15 +20,21 @@ if(startdate>enddate)
 
         int NoOfDaysReserved = enddate-startdate;
  
-       double totalAmount = NoOfDaysReserved * Roomchargesperdays;
-	     
-if(NoOfDaysReserved>=3 && NoOfDaysReserved<=4)
-      discountAmount=totalAmount*Three_or_four_days_discount;
-if(NoOfDaysReserved>=5)
-      discountAmount=totalAmount*five_or_more_days_discount;
-   double finalAmount =totalAmount-discountAmount;
-  
-      System.out.print("Number Of Days Reserved:"+NoOfDaysReserved);
-      System.out.print("Total amount to be paid:" +finalAmount);
-  }
+      int discountRate = 0;
+        if (numberOfDaysReserved >= 3 && numberOfDaysReserved <= 4) {
+            discountRate = DISCOUNT_RATE_3_4_DAYS;
+        } else if (numberOfDaysReserved >= 5) {
+            discountRate = DISCOUNT_RATE_5_OR_MORE_DAYS;
+        }
+        
+        // Calculate the total amount before and after the discount
+        int totalAmount = numberOfDaysReserved * ROOM_CHARGE_PER_DAY;
+        double discountedAmount = totalAmount - (totalAmount * discountRate / 100.0);
+        
+        // Output the results
+        System.out.println("Number of days reserved: " + numberOfDaysReserved);
+        System.out.println("Total amount before discount: Rs " + totalAmount);
+        System.out.println("Discount applied: " + discountRate + "%");
+        System.out.println("Total amount to be paid after discount: Rs " + discountedAmount);
+    }
 }
